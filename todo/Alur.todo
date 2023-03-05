@@ -1,0 +1,24 @@
+% Kategori
+    1. Menampilkan Data Kategori
+    2. Membuat Data Kategori
+
+% Brand
+    1. Menampilkan Data Brand
+    2. Membuat Data Brand
+
+% Satuan
+    1. Menampilkan Data Satuan
+    2. Membuat Data Satuan
+
+% Barang 
+    1. Untuk Membuat Stock (dijadikan sebagai penyimpanan) berdasarkan Brand, Kategori, dan Satuan yang ada
+    2. untuk menampilkan data dari barang yang baru dibuat yang lalu dikirim ke model barang
+    3. hanya boleh dibuat oleh role ('admin')
+
+% Request & Transaksi (Masuk & Keluar)
+    1. Index = menampilkan data dari tabel Barang, mengambil data dari model Barang. 
+    2. Create =  Membuat Request ke Model Permintaan berdasarkan Form yang terisi dari model Barang 
+
+    1. In = Menampilkan data berdasarkan status{'pending'}, dan Menyetujui('Mengubah status menjadi approved'), 
+            dan Menolak('Menghapus')
+    2. Out = Menampilkan Data berdasarkan Status ('approved')

@@ -1,0 +1,77 @@
+Kategori::create([
+    "kode_kategori"    =>  "CTG/20230821/001",
+    "kategori"      =>  "Spare Part"
+])
+
+Kategori::create([
+    "kode_kategori"    =>  "CTG/20230821/002",
+    "kategori"      =>  "Office"
+])
+
+Brand::create([
+    "kode_brand"    =>  "BRD/20230821/001",
+    "brand"      =>  "Samsung"
+])
+
+Brand::create([
+    "kode_brand"    =>  "BRD/20230821/002",
+    "brand"      =>  "LG"
+])
+
+Satuan::create([
+    "kode_satuan"    =>  "STN/20230821/001",
+    "satuan"      =>  "Unit"
+])
+
+Satuan::create([
+    "kode_satuan"    =>  "STN/20230821/002",
+    "satuan"      =>  "Sekotak"
+])
+
+Barang::create([
+    "nama_barang"    =>  "Motor Kawasaki",
+    "brand_id"      =>  1,
+    "kategori_id"       => 2,
+    "satuan_id"     =>  1,
+    "no_reg"    =>  "BRG/20230821/001",
+    "stock"      => 10,
+    "harga"      =>  "100000"
+])
+
+Barang::create([
+    "nama_barang"    =>  "Mesin Cuci",
+    "brand_id"      =>  2,
+    "kategori_id"       => 1,
+    "satuan_id"     =>  2,
+    "no_reg"    =>  "BRG/20230821/002",
+    "stock"      => 10,
+    "harga"      =>  "400000"
+])
+
+Transaksi::create([
+    "barang_id"    =>  1,
+    "jumlah_permintaan"      =>  5,
+])
+Transaksi::create([
+    "kode_transaksi"    =>  "TRS/20230821/002",
+    "barang_id"    =>  2,
+    "status"        => "approved",
+    "jumlah_permintaan"      =>  5
+])
+
+
+
+!! Method
+$barang = Barang::all()
+$barang = Barang::first() =>Untuk Memilih Data Pertama
+$barang->kategori
+$barang->satuan
+$barang->brand
+
+$brand = Brand::all()
+$brand = Brand::first()
+$barang->brand
+
+$transaksis = Transaksi::all()
+$transaksis = Transaksi::first()
+$transaksis->barang

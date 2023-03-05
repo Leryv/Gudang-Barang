@@ -1,0 +1,1 @@
+php artisan permission:show => Untuk Menampilkan Semua Izin Dari Setiap Role Yang Ada
