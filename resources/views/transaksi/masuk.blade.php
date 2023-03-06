@@ -97,7 +97,7 @@
                                     <td
                                         class="px-6 py-4 text-gray-600 flex justify-center items-center"
                                     >
-                                        @if($transaksi->barang->stock >
+                                        @if($transaksi->barang->stock >=
                                         $transaksi->jumlah_permintaan )
                                         <form
                                             class="flex gap-5"
