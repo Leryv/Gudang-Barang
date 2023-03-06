@@ -74,14 +74,15 @@ class BarangController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Barang  $barang
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Barang $barang)
+    * Show the form for editing the specified resource.
+    *
+    * @param  \App\Models\Barang  $barang
+    //  * @return \Illuminate\Http\Response
+    */
+    public function edit($id)
     {
-        //
+        $barangs = Barang::findOrFail($id);
+        return view('barang.edit_stock_barang', compact('barangs'));
     }
 
     /**
@@ -89,11 +90,14 @@ class BarangController extends Controller
      *
      * @param  \App\Http\Requests\UpdateBarangRequest  $request
      * @param  \App\Models\Barang  $barang
-     * @return \Illuminate\Http\Response
      */
     public function update(UpdateBarangRequest $request, Barang $barang)
     {
-        //
+        $barang = Barang::findOrFail($barang->id);
+        $barang->update([
+            'stock' => $request->stock
+        ]);
+        return redirect('barang/all-stock');
     }
 
     /**

@@ -46,14 +46,12 @@
                                         Nama Barang
                                     </th>
                                     <th scope="col" class="px-6 py-3">Stock</th>
-                                    @role('penjual|Super-Admin')
                                     <th
                                         scope="col"
                                         class="px-6 py-3 flex justify-center"
                                     >
                                         Option
                                     </th>
-                                    @endrole
                                 </tr>
                             </thead>
                             <tbody>
@@ -92,6 +90,16 @@
                                             class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
                                         >
                                             Buat Permintaan
+                                        </a>
+                                        @endrole @role('gudang|Super-Admin')
+                                        <a
+                                            href="{{
+                                                route('edit.stock-barang', $barang->id)
+                                            }}"
+                                            type="button"
+                                            class="focus:outline-none bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
+                                        >
+                                            Update Stock
                                         </a>
                                         @endrole
                                     </td>

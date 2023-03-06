@@ -5,7 +5,6 @@ use App\Http\Controllers\BrandController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\SatuanController;
 use App\Http\Controllers\TransaksiController;
-use App\Models\Kategori;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,6 +43,8 @@ Route::middleware(['role:Super-Admin|gudang'])->prefix('barang')->group(function
     Route::get('', [BarangController::class, 'index'])->name('barang.index');
     Route::get('add-persediaan/{kategoris}', [BarangController::class, 'create'])->name('add.stock-barang');
     Route::post('add-persediaan/store/{kategoris}', [BarangController::class, 'store'])->name('store.stock-barang');
+    Route::get('edit-persediaan/{barang}', [BarangController::class, 'edit'])->name('edit.stock-barang');
+    Route::patch('edit-persediaan/{barang}', [BarangController::class, 'update'])->name('update.stock-barang');
 });
 Route::prefix('barang')->group(function () {
     Route::get('all-stock', [BarangController::class, 'all'])->name('view.stock-barang');

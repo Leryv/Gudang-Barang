@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __("Permintaan Pengisian Stock") }}
+            {{ __("Tambah Stock") }}
         </h2>
     </x-slot>
 
@@ -14,9 +14,10 @@
             </h5>
             <form
                 class="w-full max-w-7xl p-4 shadow-md bg-white rounded-md text-gray-800"
+                action="{{ route('update.stock-barang', $barangs->id) }}"
                 method="post"
             >
-                @csrf
+                @csrf @method('PATCH')
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                         <label
@@ -30,7 +31,7 @@
                             id="grid-password"
                             type="text"
                             name="nama_barang"
-                            value="{{$transaksis->nama_barang}}"
+                            value="{{$barangs->nama_barang}}"
                             disabled
                         />
                         <!-- error message untuk title -->
@@ -59,7 +60,7 @@
                                 id="grid-password"
                                 type="text"
                                 name="brand"
-                                value="{{$transaksis->brand->brand}}"
+                                value="{{$barangs->brand->brand}}"
                                 disabled
                             />
                         </div>
@@ -76,7 +77,7 @@
                             id="grid-password"
                             type="text"
                             name="brand"
-                            value="{{$transaksis->satuan->satuan}}"
+                            value="{{$barangs->satuan->satuan}}"
                             disabled
                         />
                     </div>
@@ -95,7 +96,7 @@
                                 id="price"
                                 type="text"
                                 name="harga"
-                                value="{{$transaksis->harga}}"
+                                value="{{$barangs->harga}}"
                                 disabled
                                 onCopy="false"
                             />
@@ -109,19 +110,48 @@
                             class="block uppercase tracking-wide text-xs font-bold mb-2 text-gray-500"
                             for="stock"
                         >
-                            Jumlah Permintaan
+                            Kategori
+                        </label>
+                        <input
+                            class="appearance-none text-gray-500 cursor-not-allowed block w-full border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                            id="kategori"
+                            type="text"
+                            name="kategori_id"
+                            onPaste="return false"
+                            value="{{$barangs->kategori->kode_kategori}} - {{$barangs->kategori->kategori}}"
+                            disabled
+                            required
+                        />
+                        <!-- value="{{$barangs->stock}}" -->
+                    </div>
+                </div>
+                <div class="flex flex-wrap -mx-3 mb-6">
+                    <div class="w-full px-3">
+                        <label
+                            class="block uppercase tracking-wide text-xs font-bold mb-2 text-gray-500"
+                            for="grid-password"
+                        >
+                            Jumlah Stock
                         </label>
                         <input
                             class="appearance-none block w-full border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                            id="stock"
-                            type="number"
-                            name="jumlah_permintaan"
-                            required
-                            onPaste="return false"
+                            id="grid-password"
+                            type="text"
+                            name="stock"
+                            value="{{$barangs->stock}}"
                         />
-                        <!-- value="{{$transaksis->stock}}" -->
+                        <!-- error message untuk title -->
+                        @error('title')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                        @enderror
+                        <p class="text-gray-600 text-xs italic">
+                            Input Stock Dengan Teliti
+                        </p>
                     </div>
                 </div>
+
                 <div class="flex flex-wrap -mx-3 mb-6">
                     <div class="w-full px-3">
                         <button
