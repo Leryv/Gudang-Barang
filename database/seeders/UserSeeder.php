@@ -19,7 +19,8 @@ class UserSeeder extends Seeder
         $user = User::factory()->create([
             'name' => 'Black',
             'email' => 'black@gudang.com',
-            'password' => bcrypt('gudang')
+            'password' => bcrypt('gudang'),
+            'phone' => '081384271014'
         ]);
         $user->assignRole('gudang');
         $this->command->newLine();
@@ -32,7 +33,8 @@ class UserSeeder extends Seeder
         $user = User::factory()->create([
             'name' => 'Lynn',
             'email' => 'lynn@penjual.com',
-            'password' => bcrypt('penjual')
+            'password' => bcrypt('penjual'),
+            'phone' => '081384271014'
         ]);
         $user->assignRole('penjual');
         $this->command->newLine();
@@ -44,7 +46,8 @@ class UserSeeder extends Seeder
         $user = User::factory()->create([
             'name' => 'Super Admin',
             'email' => 'admin@superadmin.com',
-            'password' => bcrypt('superadmin')
+            'password' => bcrypt('superadmin'),
+            'phone' => '081384271014'
         ]);
         $user->assignRole('Super-Admin');
         $this->command->newLine();
