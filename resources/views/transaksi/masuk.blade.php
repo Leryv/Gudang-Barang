@@ -91,9 +91,16 @@
                                             {{$transaksi->status}}
                                         </div>
                                     </td>
-                                    <td class="px-6 py-4 text-gray-600">
+                                    @if($transaksi->barang->stock <
+                                    $transaksi->jumlah_permintaan)
+                                    <td class="px-6 py-4 text-red-500">
+                                        ! {{$transaksi->barang->stock}}
+                                    </td>
+                                    @else
+                                    <td class="px-6 py-4 text-green-600">
                                         {{$transaksi->barang->stock}}
                                     </td>
+                                    @endif
                                     <td
                                         class="px-6 py-4 text-gray-600 flex justify-center items-center"
                                     >
