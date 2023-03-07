@@ -93,10 +93,11 @@ class BarangController extends Controller
      */
     public function update(UpdateBarangRequest $request, Barang $barang)
     {
+        $hitung = $barang->stock + $request->stock;
         $barang->update([
-            'stock' => $request->stock
+            'stock' => $hitung
         ]);
-        return redirect('barang/all-stock');
+        return redirect('barang');
     }
 
     /**

@@ -138,7 +138,6 @@
                             id="grid-password"
                             type="text"
                             name="stock"
-                            value="{{$barangs->stock}}"
                         />
                         <!-- error message untuk title -->
                         @error('title')
