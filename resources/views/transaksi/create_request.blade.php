@@ -15,6 +15,7 @@
             <form
                 class="w-full max-w-7xl p-4 shadow-md bg-white rounded-md text-gray-800"
                 method="post"
+                action="{{ route('store.request.stock.barang', $transaksis->id) }}"
             >
                 @csrf
                 <div class="flex flex-wrap -mx-3 mb-6">

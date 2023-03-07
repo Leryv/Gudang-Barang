@@ -42,7 +42,7 @@ Route::middleware(['role:Super-Admin|penjual'])->prefix('request')->group(functi
 Route::middleware(['role:Super-Admin|gudang'])->prefix('barang')->group(function () {
     Route::get('', [BarangController::class, 'index'])->name('barang.index');
     Route::get('add-persediaan/{kategoris}', [BarangController::class, 'create'])->name('add.stock-barang');
-    Route::post('add-persediaan/store/{kategoris}', [BarangController::class, 'store'])->name('store.stock-barang');
+    Route::post('add-persediaan/{kategoris}', [BarangController::class, 'store'])->name('store.stock-barang');
     Route::get('edit-persediaan/{barang}', [BarangController::class, 'edit'])->name('edit.stock-barang');
     Route::patch('edit-persediaan/{barang}', [BarangController::class, 'update'])->name('update.stock-barang');
 });

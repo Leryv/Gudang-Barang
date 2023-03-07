@@ -55,7 +55,6 @@ class TransaksiController extends Controller
             'barang_id' => $barang->id,
             'jumlah_permintaan' => $request->jumlah_permintaan,
         ]);
-        // return $barang;
         return redirect()->route('view.stock-barang')->with('success', 'Berhasil Dibuat');
 
     }
