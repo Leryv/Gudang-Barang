@@ -22,7 +22,7 @@
                     </x-nav-link>
                     @can('create permintaan stock')
                     <x-nav-link
-                        :href="route('view.stock-barang')"
+                        :href="route('barang.index')"
                         :active="request()->routeIs('view.stock-barang')"
                     >
                         {{ __("ReStock Barang") }}
