@@ -116,9 +116,9 @@ class BarangController extends Controller
      * @param  \App\Models\Barang  $barang
      */
 
-    public function all()
+    public function all($id)
     {
-        $barangs = Barang::paginate(5);
+        $barangs = Barang::Where('kategori_id', $id)->with('brand', 'satuan')->get();
         return view('barang.restockbarang', compact('barangs'));
     }
 }

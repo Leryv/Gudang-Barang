@@ -32,6 +32,7 @@ Route::middleware(['role:Super-Admin|gudang'])->prefix('pengisian-stock')->group
     Route::get('keluar', [TransaksiController::class, 'keluar'])->name('transaksi.keluar');
     Route::patch('update/{transaksi}', [TransaksiController::class, 'update'])->name('update.status.request');
     Route::delete('delete/{transaksi}', [TransaksiController::class, 'destroy'])->name('delete.request.stock.barang');
+    Route::get('keluar/laporan/{transaksi}', [TransaksiController::class, 'cetak'])->name('transaksi.cetak.data');
 });
 Route::middleware(['role:Super-Admin|penjual'])->prefix('request')->group(function () {
     Route::get('add/{transaksi}', [TransaksiController::class, 'create'])->name('request.stock.barang');
@@ -40,14 +41,14 @@ Route::middleware(['role:Super-Admin|penjual'])->prefix('request')->group(functi
 
 // Barang
 Route::middleware(['role:Super-Admin|gudang'])->prefix('barang')->group(function () {
-    Route::get('', [BarangController::class, 'index'])->name('barang.index');
     Route::get('add-persediaan/{kategoris}', [BarangController::class, 'create'])->name('add.stock-barang');
     Route::post('add-persediaan/{kategoris}', [BarangController::class, 'store'])->name('store.stock-barang');
     Route::get('edit-persediaan/{barang}', [BarangController::class, 'edit'])->name('edit.stock-barang');
     Route::patch('edit-persediaan/{barang}', [BarangController::class, 'update'])->name('update.stock-barang');
 });
 Route::prefix('barang')->group(function () {
-    Route::get('all-stock', [BarangController::class, 'all'])->name('view.stock-barang');
+    Route::get('', [BarangController::class, 'index'])->name('barang.index');
+    Route::get('all-stock/{id}', [BarangController::class, 'all'])->name('view.stock-barang');
 });
 
 //Kategori , Satuan, Brand

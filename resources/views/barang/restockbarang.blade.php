@@ -115,11 +115,6 @@
                         </table>
                     </div>
                 </div>
-                <div class="m-5">
-                    <div class="">
-                        {{ $barangs->links('pagination::tailwind') }}
-                    </div>
-                </div>
             </div>
         </div>
     </div>
