@@ -93,7 +93,6 @@ class BarangController extends Controller
      */
     public function update(UpdateBarangRequest $request, Barang $barang)
     {
-        $barang = Barang::findOrFail($barang->id);
         $barang->update([
             'stock' => $request->stock
         ]);
