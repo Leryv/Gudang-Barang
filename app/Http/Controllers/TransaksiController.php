@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Barang;
 use App\Models\Transaksi;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreTransaksiRequest;
 use App\Http\Requests\UpdateTransaksiRequest;
 
@@ -51,7 +52,9 @@ class TransaksiController extends Controller
     public function store(StoreTransaksiRequest $request, $id)
     {
         $barang = Barang::findOrFail($id);
+        $authid = Auth::id();
         $transaksi = Transaksi::create([
+            'user_id' => $authid,
             'barang_id' => $barang->id,
             'jumlah_permintaan' => $request->jumlah_permintaan,
         ]);

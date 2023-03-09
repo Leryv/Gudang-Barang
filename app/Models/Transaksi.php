@@ -16,6 +16,7 @@ class Transaksi extends Model
     use AutoNumberTrait;
     protected $table = 'transaksis';
     protected $fillable = [
+        'user_id',
         'barang_id',
         'jumlah_permintaan',
         'status'
@@ -30,6 +31,11 @@ class Transaksi extends Model
     public function barang()
     {
         return $this->belongsTo(Barang::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
     public function getAutoNumberOptions()

@@ -34,6 +34,9 @@
                                         Tanggal
                                     </th>
                                     <th scope="col" class="px-6 py-3">
+                                        Pengguna
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
                                         Status
                                     </th>
                                 </tr>
@@ -55,6 +58,9 @@
                                     </td>
                                     <td class="px-6 py-4 text-gray-600">
                                         {{ $transaksi->created_at->format('d-m-y')}}
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-600">
+                                        {{$transaksi->user->name}}
                                     </td>
                                     <td
                                         class="px-6 py-4 text-green-500 font-bold capitalize"
