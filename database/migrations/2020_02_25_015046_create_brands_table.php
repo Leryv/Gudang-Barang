@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateKategorisTable extends Migration
+class CreateBrandsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateKategorisTable extends Migration
      */
     public function up()
     {
-        Schema::create('kategoris', function (Blueprint $table) {
-            $table->id();
-            $table->string('kode_kategori', 17)->nullable()->default('Not Valid');
-            $table->string('kategori', 12)->nullable()->default('Not Asiggned');
+        Schema::create('brands', function (Blueprint $table) {
+            $table->increments('id');
+            $table->string('kode_brand')->nullable()->default('Not Valid');
+            $table->string('brand')->nullable()->default('Not Asiggned');
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateKategorisTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('kategoris');
+        Schema::dropIfExists('brands');
     }
 }

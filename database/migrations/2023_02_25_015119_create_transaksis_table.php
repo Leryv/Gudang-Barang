@@ -16,10 +16,12 @@ class CreateTransaksisTable extends Migration
         Schema::create('transaksis', function (Blueprint $table) {
             $table->id();
             $table->string('kode_transaksi', 16)->nullable()->default('text');
-            $table->foreignId('barang_id');
+            $table->unsignedInteger('barang_id');
             $table->integer('jumlah_permintaan')->nullable()->unsigned();
             $table->string('status')->nullable()->default('pending');
             $table->timestamps();
+
+            $table->foreign('barang_id')->references('id')->on('barangs')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
