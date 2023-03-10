@@ -18,6 +18,7 @@ class CreateTransaksisTable extends Migration
             $table->string('kode_transaksi', 16)->nullable()->default('text');
             $table->unsignedInteger('user_id');
             $table->unsignedInteger('barang_id');
+            $table->bigInteger('total_harga')->unsigned()->default(0);
             $table->integer('jumlah_permintaan')->nullable()->unsigned();
             $table->string('status')->nullable()->default('pending');
             $table->timestamps();

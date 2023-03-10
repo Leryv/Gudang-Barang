@@ -51,12 +51,16 @@ class TransaksiController extends Controller
      */
     public function store(StoreTransaksiRequest $request, $id)
     {
+        // dd($request->jumlah_permintaan);
         $barang = Barang::findOrFail($id);
         $authid = Auth::id();
-        $transaksi = Transaksi::create([
+        $hitung = $request->jumlah_permintaan * $barang->harga;
+
+        Transaksi::create([
             'user_id' => $authid,
             'barang_id' => $barang->id,
             'jumlah_permintaan' => $request->jumlah_permintaan,
+            'total_harga' => $hitung
         ]);
         return redirect()->route('view.stock-barang')->with('success', 'Berhasil Dibuat');
 
@@ -93,11 +97,6 @@ class TransaksiController extends Controller
     */
     public function update(UpdateTransaksiRequest $request, Transaksi $transaksi)
     {
-        // Transaksi::where('id', $id)->update(['status' => 'approve']);
-        // $transaksis = Transaksi::findOrFail($id);
-        // $transaksi->status = 'approved';
-        // $transaksi->update();
-
         $barang = Barang::findOrFail($transaksi->barang_id);
 
         $transaksi->update([
@@ -111,10 +110,6 @@ class TransaksiController extends Controller
                 'stock' => $hitung
             ]);
         }
-        // $stocks->update([
-        //     'stock' => $stocks - $transaksi->jumlah_permintaan
-        // ]);
-
         return redirect()->back()->with('successfull', 'Permintaan Berhasil Disetujui');
     }
 

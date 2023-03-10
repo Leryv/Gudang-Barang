@@ -52,13 +52,19 @@
                                     <th scope="col" class="px-6 py-3">
                                         Jumlah Permintaan
                                     </th>
-                                    <th scope="col" class="px-6 py-3">
+                                    <!-- <th scope="col" class="px-6 py-3">
                                         Tanggal
-                                    </th>
+                                    </th> -->
                                     <th scope="col" class="px-6 py-3">
                                         Status
                                     </th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Pengguna
+                                    </th>
                                     <th scope="col" class="px-6 py-3">Stock</th>
+                                    <th scope="col" class="px-6 py-3">
+                                        Total Harga
+                                    </th>
                                     <th scope="col" class="px-6 py-3">
                                         Option
                                     </th>
@@ -79,9 +85,9 @@
                                     <td class="px-6 py-4 text-gray-600">
                                         {{$transaksi->jumlah_permintaan}}
                                     </td>
-                                    <td class="px-6 py-4 text-gray-600">
+                                    <!-- <td class="px-6 py-4 text-gray-600">
                                         {{$transaksi->created_at->format('d-m-y')}}
-                                    </td>
+                                    </td> -->
                                     <td
                                         class="px-6 py-4 text-red-500 font-bold capitalize"
                                     >
@@ -90,6 +96,9 @@
                                         >
                                             {{$transaksi->status}}
                                         </div>
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-600">
+                                        {{$transaksi->user->name}}
                                     </td>
                                     @if($transaksi->barang->stock <
                                     $transaksi->jumlah_permintaan)
@@ -101,6 +110,11 @@
                                         {{$transaksi->barang->stock}}
                                     </td>
                                     @endif
+
+                                    <td class="px-6 py-4 text-gray-600">
+                                        Rp. {{$transaksi->total_harga}}
+                                    </td>
+
                                     <td
                                         class="px-6 py-4 text-gray-600 flex justify-center items-center"
                                     >

@@ -19,10 +19,11 @@ class Transaksi extends Model
         'user_id',
         'barang_id',
         'jumlah_permintaan',
+        'total_harga',
         'status'
     ];
     protected $guarded = [
-        'id'
+        'id',
     ];
 
     protected $casts = [

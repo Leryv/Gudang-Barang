@@ -37,6 +37,9 @@
                                         Pengguna
                                     </th>
                                     <th scope="col" class="px-6 py-3">
+                                        Jumlah Harga
+                                    </th>
+                                    <th scope="col" class="px-6 py-3">
                                         Status
                                     </th>
                                 </tr>
@@ -61,6 +64,9 @@
                                     </td>
                                     <td class="px-6 py-4 text-gray-600">
                                         {{$transaksi->user->name}}
+                                    </td>
+                                    <td class="px-6 py-4 text-gray-600">
+                                        Rp. {{$transaksi->total_harga}}
                                     </td>
                                     <td
                                         class="px-6 py-4 text-green-500 font-bold capitalize"
