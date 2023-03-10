@@ -112,7 +112,8 @@
                                     @endif
 
                                     <td class="px-6 py-4 text-gray-600">
-                                        Rp. {{$transaksi->total_harga}}
+                                        Rp.
+                                        {{number_format($transaksi->total_harga)}}
                                     </td>
 
                                     <td

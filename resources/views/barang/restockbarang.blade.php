@@ -33,19 +33,17 @@
                             <thead class="text-xs uppercase bg-gray-50">
                                 <tr>
                                     <th scope="col" class="px-6 py-3">
-                                        Kategori
+                                        Kode Barang
                                     </th>
                                     <th scope="col" class="px-6 py-3">Brand</th>
                                     <th scope="col" class="px-6 py-3">
                                         Satuan
                                     </th>
                                     <th scope="col" class="px-6 py-3">
-                                        Kode Barang
-                                    </th>
-                                    <th scope="col" class="px-6 py-3">
                                         Nama Barang
                                     </th>
                                     <th scope="col" class="px-6 py-3">Stock</th>
+                                    <th scope="col" class="px-6 py-3">Harga</th>
                                     <th
                                         scope="col"
                                         class="px-6 py-3 flex justify-center"
@@ -58,10 +56,10 @@
                                 @forelse($barangs as $barang)
                                 <tr class="bg-white border-b">
                                     <th
-                                        scope="row"
                                         class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
+                                        scope="row"
                                     >
-                                        {{$barang->kategori->kategori ?? "No Kategori"}}
+                                        {{$barang->no_reg}}
                                     </th>
                                     <td class="px-6 py-4">
                                         {{$barang->brand->brand}}
@@ -70,13 +68,14 @@
                                         {{$barang->satuan->satuan}}
                                     </td>
                                     <td class="px-6 py-4">
-                                        {{$barang->no_reg}}
-                                    </td>
-                                    <td class="px-6 py-4">
                                         {{$barang->nama_barang}}
                                     </td>
                                     <td class="px-6 py-4">
                                         {{$barang->stock}}
+                                    </td>
+                                    <td class="px-6 py-4">
+                                        Rp.
+                                        {{number_format($barang->harga?? 0)}}
                                     </td>
                                     <td
                                         class="px-6 py-4 flex justify-center items-center"
