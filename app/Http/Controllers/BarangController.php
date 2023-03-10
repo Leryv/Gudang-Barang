@@ -91,10 +91,11 @@ class BarangController extends Controller
      * @param  \App\Http\Requests\UpdateBarangRequest  $request
      * @param  \App\Models\Barang  $barang
      */
-    public function update(UpdateBarangRequest $request, Barang $barang)
+    public function update(UpdateBarangRequest $request, $id)
     {
+        $barang = Barang::findOrFail($id);
         $barang->update([
-            'stock' => $request->stock
+            'stock' => $request->stock + $barang->stock
         ]);
         return redirect('barang/all-stock');
     }

@@ -120,7 +120,6 @@
                             onPaste="return false"
                             value="{{$barangs->kategori->kode_kategori}} - {{$barangs->kategori->kategori}}"
                             disabled
-                            required
                         />
                         <!-- value="{{$barangs->stock}}" -->
                     </div>
@@ -131,13 +130,14 @@
                             class="block uppercase tracking-wide text-xs font-bold mb-2 text-gray-500"
                             for="grid-password"
                         >
-                            Jumlah Stock
+                            Tambah Atau Kurangi Stock
                         </label>
                         <input
                             class="appearance-none block w-full border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
                             id="grid-password"
-                            type="text"
+                            type="number"
                             name="stock"
+                            required
                         />
                         <!-- error message untuk title -->
                         @error('title')
@@ -146,7 +146,7 @@
                         </div>
                         @enderror
                         <p class="text-gray-600 text-xs italic">
-                            Input Stock Dengan Teliti
+                            Input Stock Yang Akan Ditambah Atau Dikurangi
                         </p>
                     </div>
                 </div>
