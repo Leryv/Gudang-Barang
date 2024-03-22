@@ -121,5 +121,6 @@ class BarangController extends Controller
     {
         $barangs = Barang::Where('kategori_id', $id)->with('brand', 'satuan')->get();
         return view('barang.restockbarang', compact('barangs'));
+    
     }
 }

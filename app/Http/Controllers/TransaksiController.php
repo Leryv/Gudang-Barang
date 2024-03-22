@@ -51,7 +51,7 @@ class TransaksiController extends Controller
      */
     public function store(StoreTransaksiRequest $request, $id)
     {
-        // dd($request->jumlah_permintaan);
+        // dd($id);
         $barang = Barang::findOrFail($id);
         $authid = Auth::id();
         $hitung = $request->jumlah_permintaan * $barang->harga;
@@ -62,8 +62,7 @@ class TransaksiController extends Controller
             'jumlah_permintaan' => $request->jumlah_permintaan,
             'total_harga' => $hitung
         ]);
-        return redirect()->route('view.stock-barang')->with('success', 'Berhasil Dibuat');
-
+        return redirect()->route('barang.index')->with('success', 'Permintaan Restock Berhasil, Silahkan Tunggu Persetujuan Gudang');
     }
 
     /**

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __("Master Barang") }}
+            {{ __('Master Barang') }}
         </h2>
     </x-slot>
 
@@ -12,6 +12,14 @@
                 /
                 <li class="list-none">Index</li>
             </h5>
+            @if (session('success'))
+                <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative"
+                    role="alert">
+                    <span class="block sm:inline">
+                        {{ session('success') }}</span>
+                </div>
+            @endif
+
             <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="flex justify-center m-5">
                     <div class="min-w-full flex items-center mt-3">
@@ -28,56 +36,40 @@
                                     <th scope="col" class="px-6 py-3">UOM</th>
                                     <th scope="col" class="px-6 py-3">Price</th>
                                     <th scope="col" class="px-6 py-3">Stock</th> -->
-                                    <th
-                                        scope="col"
-                                        class="px-6 py-3 flex justify-center"
-                                    >
+                                    <th scope="col" class="px-6 py-3 flex justify-center">
                                         Option
                                     </th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @forelse($kategoris as $kategori)
-                                <tr class="bg-white border-b">
-                                    <th
-                                        scope="row"
-                                        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap"
-                                    >
-                                        {{$kategori->kode_kategori}}
-                                    </th>
-                                    <td class="px-6 py-4">
-                                        {{$kategori->kategori}}
-                                    </td>
-                                    <td
-                                        class="px-6 py-4 flex justify-center items-center"
-                                    >
-                                        @role('gudang|Super-Admin')
-                                        <a
-                                            href="{{
-                                                route('add.stock-barang', $kategori->id)
-                                            }}"
-                                            type="button"
-                                            class="focus:outline-none max-w-[50%] bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900"
-                                        >
-                                            Tambah List Pengisian
-                                        </a>
-                                        @endrole
-                                        <a
-                                            href="{{
-                                                route('view.stock-barang', $kategori->id)
-                                            }}"
-                                            class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
-                                        >
-                                            Tampilkan Stock
-                                        </a>
-                                    </td>
-                                </tr>
+                                    <tr class="bg-white border-b">
+                                        <th scope="row"
+                                            class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap">
+                                            {{ $kategori->kode_kategori }}
+                                        </th>
+                                        <td class="px-6 py-4">
+                                            {{ $kategori->kategori }}
+                                        </td>
+                                        <td class="px-6 py-4 flex justify-center items-center">
+                                            @role('gudang|Super-Admin')
+                                                <a href="{{ route('add.stock-barang', $kategori->id) }}" type="button"
+                                                    class="focus:outline-none max-w-[50%] bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:focus:ring-yellow-900">
+                                                    Tambah List Pengisian
+                                                </a>
+                                            @endrole
+                                            <a href="{{ route('view.stock-barang', $kategori->id) }}"
+                                                class="focus:outline-none text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900">
+                                                Tampilkan Stock
+                                            </a>
+                                        </td>
+                                    </tr>
                                 @empty
-                                <tr class="bg-white border-b">
-                                    <td class="px-6 py-4 text-gray-600">
-                                        Barang Tidak Tersedia
-                                    </td>
-                                </tr>
+                                    <tr class="bg-white border-b">
+                                        <td class="px-6 py-4 text-gray-600">
+                                            Barang Tidak Tersedia
+                                        </td>
+                                    </tr>
                                 @endforelse
                             </tbody>
                         </table>
