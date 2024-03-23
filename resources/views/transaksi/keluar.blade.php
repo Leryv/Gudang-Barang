@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl leading-tight">
-            {{ __('Transaksi Keluar') }}
+            {{ __('Request Approved') }}
         </h2>
     </x-slot>
 
